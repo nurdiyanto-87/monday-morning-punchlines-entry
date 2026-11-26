@@ -21,6 +21,8 @@ def main() -> None:
     text = JOKE.strip()
     assert 1 <= len(text) <= 200, f"joke must be 1-200 chars, got {len(text)}"
     assert text.strip(), "joke must not be only whitespace"
+    # Judge criterion 1: the joke must actually be about Monday mornings.
+    assert "Monday" in text, "joke must be about Monday mornings"
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(text, encoding="utf-8")
 
